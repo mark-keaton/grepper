@@ -3,7 +3,7 @@ import argparse
 from pathlib import Path
 
 
-def search(pattern, filepath, **flags):
+def search(pattern, filepath):
     path_obj = Path(filepath)
     with path_obj.open() as file_:
         lines = file_.readlines()
@@ -20,7 +20,7 @@ def main():
     parser.add_argument('search_path', action='store')
 
     args = parser.parse_args()  # returns a Namespace object
-    # WHAT MAGIC IS HAPPENING HERE?
+    # args = parser.parse_args(['Superman', 'dc_heroes.txt'])
     search(args.pattern, args.search_path)
 
 if __name__ == '__main__':
