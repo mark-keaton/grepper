@@ -14,9 +14,15 @@ def search(pattern, filepath):
 
 def main():
     args = sys.argv
-    pattern = args[1]
-    search_path = args[2]
-    search(pattern, search_path)
+    if len(args) > 1:
+        pattern = args[1]
+        search_path = args[2]
+        search(pattern, search_path)
+    else:
+        error1 = "usage: grepper.py pattern search_path"
+        error2 = "grepper.py: error: the following arguments are required: pattern, search_path"
+        print(error1, error2, sep='\n')
+
 
 if __name__ == '__main__':
     main()
