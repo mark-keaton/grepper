@@ -13,12 +13,14 @@ def search(pattern, filepath, **flags):
                 print(line_number, line, sep='\t')
 
 def main():
-    parser = argparse.ArgumentParser(description='Simplistic search program.')
+    parser = argparse.ArgumentParser(description='A very simplistic search program.',
+                                     prog="grepper")
 
     parser.add_argument('pattern', action='store')
     parser.add_argument('search_path', action='store')
 
     args = parser.parse_args()  # returns a Namespace object
+    # WHAT MAGIC IS HAPPENING HERE?
     search(args.pattern, args.search_path)
 
 if __name__ == '__main__':
